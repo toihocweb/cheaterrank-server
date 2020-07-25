@@ -17,14 +17,20 @@ function test_code() {
     if (code_result === expected[c]) {
       passed += 1;
     } else {
-      c += 1;
-      failed_cases.push(`case ${c}`);
+      failed_cases.push(Number(c) + 1);
     }
   }
-  console.log("passed: ", passed, "out of ", cases_len);
+  const result = {
+    passed: 0,
+    cases_len: 0,
+    failed_cases: [],
+  };
   if (failed_cases.length) {
-    console.log("test cases not passed", failed_cases.join(","));
+    result.failed_cases = failed_cases;
   }
+  result.passed = passed;
+  result.cases_len = cases_len;
+  console.log(result);
 }
 
 test_code();

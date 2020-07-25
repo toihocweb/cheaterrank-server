@@ -43,7 +43,6 @@ function testCode(req, res) {
     fs.writeFileSync(path.join(__dirname, CODE_FOLDER, "cases.js"), cases);
     const proc = execSync("node " + path.join(CODE_FOLDER, "tests.js"));
     const results = proc.toString();
-
     return res.send(results);
   } catch (error) {
     const regex = /(TypeError|ReferenceError|SyntaxError).*/gm;
