@@ -12,6 +12,12 @@ function test_code() {
   const cases_len = cases.length;
   let passed = 0;
   const failed_cases = [];
+  const result = {
+    passed: 0,
+    cases_len: 0,
+    failed_cases: [],
+    code_result: [],
+  };
   for (c in cases) {
     let code_result = require("./input_code")(cases[c]);
     if (code_result === expected[c]) {
@@ -19,12 +25,9 @@ function test_code() {
     } else {
       failed_cases.push(Number(c) + 1);
     }
+    result.code_result.push(code_result);
   }
-  const result = {
-    passed: 0,
-    cases_len: 0,
-    failed_cases: [],
-  };
+
   if (failed_cases.length) {
     result.failed_cases = failed_cases;
   }

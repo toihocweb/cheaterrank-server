@@ -1,7 +1,8 @@
 
   module.exports = (input) => {
       
-    // your code here
+  // your code here
+  return 30
 
     }
   
