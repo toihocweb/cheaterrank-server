@@ -1,6 +1,6 @@
 
   module.exports = {
-    inputs: [[1, 1, 1], [1,2,3] , [] , [3,-1, -2]],
-    outputs: [1 , 3, 0, 3],
+    inputs: [[{"name": "Dress" , "quantity": 10} , {"name": "Hat" , "quantity": 20}], [{"name": "Shirt"} , {"name": "Coat" , "quantity": 20}]],
+    outputs: [30 , 20],
     }
   

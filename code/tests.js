@@ -20,6 +20,7 @@ function test_code() {
   };
   for (c in cases) {
     let code_result = require("./input_code")(cases[c]);
+    console.log("code_result", code_result);
     if (JSON.stringify(code_result) === JSON.stringify(expected[c])) {
       passed += 1;
     } else {
@@ -33,7 +34,6 @@ function test_code() {
   }
   result.passed = passed;
   result.cases_len = cases_len;
-  console.log(result);
 }
 
 test_code();
