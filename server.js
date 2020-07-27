@@ -7,7 +7,19 @@ const path = require("path");
 const postQuestion = require("./route/api/question");
 
 const app = express();
-app.use(cors());
+if (process.env.NODE_ENV === "PROD") {
+  app.use(
+    cors({
+      origin: "https://toihocweb.net/",
+    })
+  );
+} else {
+  app.use(
+    cors({
+      origin: "http://localhost:3000",
+    })
+  );
+}
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
