@@ -7,6 +7,9 @@ const path = require("path");
 const postQuestion = require("./route/api/question");
 
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 if (process.env.NODE_ENV === "PROD") {
   app.use(
     cors({
@@ -20,8 +23,6 @@ if (process.env.NODE_ENV === "PROD") {
     })
   );
 }
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 const CODE_FOLDER = "code";
 
@@ -52,7 +53,6 @@ function testCode(req, res) {
     fs.writeFileSync(path.join(__dirname, CODE_FOLDER, "cases.js"), cases);
     const proc = execSync("node " + path.join(CODE_FOLDER, "tests.js"));
     const results = proc.toString();
-    console.log("----results", results);
     return res.send(results);
   } catch (error) {
     const regex = /(TypeError|ReferenceError|SyntaxError).*/gm;
@@ -65,7 +65,7 @@ app.get("/", (req, res) => {
   res.send("Hello world!");
 });
 
-app.post("/api/test", testCode);
+app.post("/api/test/", testCode);
 
 app.post("/question", postQuestion);
 
