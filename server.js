@@ -65,7 +65,7 @@ app.get("/", (req, res) => {
   res.send("Hello world!");
 });
 
-app.post("/test/", testCode);
+app.post("/api/test", testCode);
 
 app.post("/question", postQuestion);
 
