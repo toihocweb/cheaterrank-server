@@ -4,15 +4,12 @@ const execSync = require("child_process").execSync;
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const postQuestion = require("./route/api/question");
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-function testCode(req, res) {
-  return res.send("Success");
-}
 
 const CODE_FOLDER = "code";
 
@@ -47,13 +44,16 @@ function testCode(req, res) {
   } catch (error) {
     const regex = /(TypeError|ReferenceError|SyntaxError).*/gm;
     const str = `${error.toString()}`;
-
     return res.send(regex.exec(str)[0]);
   }
 }
 
 app.get("/", (req, res) => {
-  res.send("Hello world");
+  res.send("Hello world!");
 });
+
 app.post("/test/", testCode);
+
+app.post("/question", postQuestion);
+
 app.listen(5000, () => console.log(`Listening on port 5000.`));
