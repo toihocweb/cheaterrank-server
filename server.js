@@ -30,7 +30,6 @@ function testCode(req, res) {
   let code = req.body["code"];
   let inputs = req.body.inputs;
   let outputs = req.body.outputs;
-  console.log(req.body.inputs);
   let final_code = `
   module.exports = (input) => {
       ${code}
