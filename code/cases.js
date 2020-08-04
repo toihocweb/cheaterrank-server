@@ -1,6 +1,6 @@
 
   module.exports = {
-    inputs: ["hello"],
-    outputs: [5],
+    inputs: ['inpu'],
+    outputs: ['inpu'],
     }
   
