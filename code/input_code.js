@@ -2,10 +2,10 @@
   module.exports = (input) => {
       
 /*
- description 
+123
 */
+return input[0]+ '*'.repeat(input.length - 2) + input[input.length - 1];
 
-return 1
 
     }
   

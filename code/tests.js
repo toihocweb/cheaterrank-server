@@ -19,13 +19,18 @@ function test_code() {
     code_result: [],
   };
   for (c in cases) {
-    let code_result = require("./input_code")(cases[c]);
-    if (JSON.stringify(code_result) === JSON.stringify(expected[c])) {
-      passed += 1;
-    } else {
+    try {
+      var code_result = require("./input_code")(cases[c]);
+      if (JSON.stringify(code_result) === JSON.stringify(expected[c])) {
+        passed += 1;
+      } else {
+        failed_cases.push(Number(c) + 1);
+      }
+      result.code_result.push(code_result);
+    } catch (err) {
       failed_cases.push(Number(c) + 1);
+      result.code_result.push("this case is fail");
     }
-    result.code_result.push(code_result);
   }
 
   if (failed_cases.length) {
