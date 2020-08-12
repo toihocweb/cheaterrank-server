@@ -26,7 +26,7 @@ function test_code() {
       } else {
         failed_cases.push(Number(c) + 1);
       }
-      result.code_result.push(code_result);
+      result.code_result.push(JSON.stringify(code_result));
     } catch (err) {
       failed_cases.push(Number(c) + 1);
       result.code_result.push("this case is fail");
