@@ -1,6 +1,6 @@
 
   module.exports = {
-    inputs: [123],
-    outputs: [123],
+    inputs: [{"code":"123","hello":"123","age":{"name":"123"}}],
+    outputs: [{"code":"123","hello":"123","age":{"name":"123"}}],
     }
   

@@ -1,7 +1,11 @@
 
   module.exports = (input) => {
       
-return {name: 123 , age: "123"}
+/*
+{"code":"123","hello":"123","age":{"name":"123"}}
+*/
+return {"code":"123","hello":"123","age":{name:123}}
+
 
     }
   
